@@ -1,0 +1,24 @@
+Correctional Association of New York
+
+Data analyst
+SQL & data visualization exercise
+
+Instructions:
+Please complete this exercise using any version of SQL and any data visualization tool you prefer (programmatic or not) and return it to me by 9am, Monday, March 13. 
+I've attached a data set for you to reference which reflects the structure of a table in our database. You will use the same data set for the visualization exercises. I've also attached the data dictionary provided by DOCCS for the source data.
+While evaluating, I won't mark down any errors related to different versions of SQL or problems with data types which may have changed in exporting the data.
+Please follow up with me if you have any questions.
+
+Question 1
+Write a SQL statement summarizing the number of individuals in the most recent report (REPORT_DATE) by facility (CURRENT_FACILITY_NAME)
+(DIN is the DOCCS ID number for an incarcerated person)
+
+Question 2
+Write a SQL statement which replicates the AGE_RANGE field using the AGE field.
+
+Question 3
+Write a SQL statement calculating the percent change in the size of the incarcerated population month-over-month (REPORT_DATE).
+
+Question 4
+Our team uses the data attached here to prepare for monitoring visits to state prisons. Please put together 2-3 visualization which you think would be informative to our team as they plan the visit and brief the visiting party. You can share these in any format, but please ensure they're titled and labeled so they can be easily understood.
+

@@ -1,0 +1,45 @@
+--===================================================
+--CANY SQL Exercise
+--Author: <Ella Brett-Turner>
+--Create Date: <March 12, 2023>
+--Description:
+--====================================================
+
+--Question 1: Sum individual inmates by facility.
+SELECT COUNT(din), current_facility_name FROM population
+    WHERE REPORT_DATE >= 20230301 
+    GROUP BY current_facility_name;
+
+--Question 2: Replicate age range using age.
+SELECT age, 
+CASE
+    WHEN AGE >= 18 AND age < 21 THEN '18-20'
+    WHEN AGE >= 21 AND age < 30 THEN '21-29'
+    WHEN AGE >= 30 AND age < 40 THEN '30-39'
+    WHEN AGE >= 40 AND age < 50 THEN '40-49'
+    WHEN AGE >= 50 AND age < 60 THEN '50-59'
+    WHEN AGE >= 60 AND age < 70 THEN '60-69'
+    WHEN AGE >= 70 AND age < 80 THEN '70-79'
+    WHEN AGE >= 80 AND age < 90 THEN '80-89'
+    WHEN AGE >= 90 AND age < 100 THEN '90-99'
+END AS age_range_replicate
+FROM population;
+    
+--Question 3: Calculate percent change in the size of the incarcerated population month over month.
+SELECT CONCAT(ROUND(((100.00*((SELECT COUNT(din) FROM population
+WHERE report_date = 20230301)-(SELECT COUNT(din) FROM population
+WHERE report_date = 20230201))/(SELECT COUNT(din) FROM population
+WHERE report_date = 20230301))),2), '%');
+
+--Confirming results:
+SELECT COUNT(din) FROM population
+WHERE report_date = 20230201;
+--Result: 5046
+
+SELECT COUNT(din) FROM population
+WHERE report_date = 20230201;
+--Result: 4952
+
+-- Calculation: (4952-5046)/4952 = 1.898 percentage increase in prison population from 
+--February to March 2023.
+ 
